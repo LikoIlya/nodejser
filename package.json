@@ -1,0 +1,32 @@
+{
+  "name": "nodejser",
+  "version": "1.1.1",
+  "description": "lalo4ka",
+  "main": "server.js",
+  "dependencies": {
+    "co-fs": "^1.2.0",
+    "jsonwebtoken": "^7.3.0",
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-jwt": "^3.2.0",
+    "koa-morgan": "^1.0.1",
+    "koa-pug": "^3.0.0-2",
+    "koa-router": "^7.0.1",
+    "mongoose": "^4.9.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "\\",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LikoIlya/nodejser.git"
+  },
+  "author": "Liko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LikoIlya/nodejser/issues"
+  },
+  "homepage": "https://github.com/LikoIlya/nodejser#readme"
+}

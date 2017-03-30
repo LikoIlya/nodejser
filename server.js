@@ -1,10 +1,7 @@
 // ========================
 // get the packages we need
-// ========================
-var ms = require('ms');
-var koa = require('koa');   
+// ========================  
 var parse = require('koa-bodyparser');
-var r = require('rethinkdbdash');
 var fs = require('co-fs');
 var Koa_jwt = require('koa-jwt');
 var Koa = require('koa');
