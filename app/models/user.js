@@ -6,5 +6,5 @@ var Schema = mongoose.Schema;
 module.exports = mongoose.model('User', new Schema({ 
     username: String,
     role: String,
-    password: Number
+    password: String
 }));
