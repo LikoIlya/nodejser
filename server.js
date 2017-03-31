@@ -19,7 +19,7 @@ var app = new Koa();
 // =======================
 var port = process.env.PORT || 3000; //set port
 mongoose.connect(config.database); // connect to collection users
-mongoose.connect(config.database_session) // connect to session
+//mongoose.connect(config.database_session) // connect to session
 // use body parser so we can get info from POST and/or URL parameters
 app.use(parse())
 // use morgan to log requests to the console

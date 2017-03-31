@@ -25,16 +25,16 @@ apiRouter
         // find the user
         await User.findOne({
             name: ctx.request.body.name
-        }, function (err, user) {
-            console.log(`${ctx.request.socket.address().address}\n${ctx.request.ip}`)
+        }, async function (err, user) {
             if (err) throw err;
-
             if (!user) {
                 ctx.response.body = { success: false, message: 'Authentication failed. User not found.' };
             } else if (user) {
-
                 // check if password matches
-                if (bcrypt.compareSync(ctx.request.body.password, user.passwor)){
+                if (await bcrypt.compare(ctx.request.body.password, user.password, (err, res) => {
+                    if (err)
+                        console.log(err);
+                })){
                     ctx.response.body = { success: false, message: 'Authentication failed. Wrong password.' };
                 } else {
                     // if user is found and password is right

@@ -16,7 +16,10 @@ router
         // create a sample user
         let user = new User({
             username: ctx.request.body.username,
-            password: bcrypt.hashSync(ctx.request.body.password,salt),
+            password: await bcrypt.hash(ctx.request.body.password, salt, () => { }, (err, res) => {
+                if (err)
+                    console.log(err);
+            }),
             role: 'user'
         });
         await user.save()// save the sample user
