@@ -2,9 +2,11 @@
 // routes ================
 // =======================
 const Router = require('koa-router');
+const bcrypt = require('bcrypt-nodejs')
 var User   = require('../app/models/user'); // get our mongoose model
 const apiRouter = require('./api')//use api routes
 const router = new Router();
+const salt = bcrypt.genSaltSync();
 router
     .use('/api', apiRouter.routes())
     .get('/setup', ctx => {
@@ -14,7 +16,10 @@ router
         // create a sample user
         let user = new User({
             username: ctx.request.body.username,
-            password: ctx.request.body.password,
+            password: await bcrypt.hash(ctx.request.body.password, salt, () => { }, (err, res) => {
+                if (err)
+                    console.log(err);
+            }),
             role: 'user'
         });
         await user.save()// save the sample user

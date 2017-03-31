@@ -4,6 +4,7 @@
   "description": "lalo4ka",
   "main": "server.js",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "co-fs": "^1.2.0",
     "jsonwebtoken": "^7.3.0",
     "koa": "^2.2.0",
