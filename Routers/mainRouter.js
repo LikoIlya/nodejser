@@ -2,6 +2,7 @@
 // routes ================
 // =======================
 const Router = require('koa-router');
+var User   = require('../app/models/user'); // get our mongoose model
 const apiRouter = require('./api')//use api routes
 const router = new Router();
 router

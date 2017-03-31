@@ -1,6 +1,10 @@
 
 // API ROUTES -------------------
 var Router = require('koa-router');
+var User   = require('../app/models/user'); // get our mongoose model
+var jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens
+var config = require('../config'); // get our config file
+const jwt_refresh = require('../app/TokenRefresh');
 // get an instance of the router for api routes
 var apiRouter = new Router();
 
