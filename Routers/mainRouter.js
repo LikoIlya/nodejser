@@ -3,6 +3,7 @@
 // =======================
 const Router = require('koa-router');
 const bcrypt = require('bcrypt-nodejs')
+var User   = require('../app/models/user'); // get our mongoose model
 const apiRouter = require('./api')//use api routes
 const router = new Router();
 const salt = bcrypt.genSaltSync();
