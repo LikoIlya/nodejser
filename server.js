@@ -20,11 +20,9 @@ var app = new Koa();
 // configuration =========
 // =======================
 var port = process.env.PORT || 3000 //set port
-mongoose.connect(config.database) // connect to collection users
-var con = mongoose.connect(config.database_session) // connect to session
+var con = mongoose.createConnection(config.database_session) // connect to session
 
 app.keys = ['eow5u6ciu3r23j']
-var port = process.env.PORT || 3000; //set port
 //mongoose.connect(config.database); // connect to collection users
 //mongoose.connect(config.database_session) // connect to session
 // use body parser so we can get info from POST and/or URL parameters
@@ -37,10 +35,10 @@ const pug = new Pug({
     basedir: './views',
     app: app // equals to pug.use(app) and app.use(pug.middleware) 
 })
-app.use(session({
-  store: new MongooseStore({
-    collection: 'session',
-    //connection: con,
+ app.use(session({
+   store: new MongooseStore({
+     collection: 'session',
+     connection: con,
     expires: 60 * 60 * 24 * 14, // 2 weeks is the default
     model: 'KoaSession'
   })

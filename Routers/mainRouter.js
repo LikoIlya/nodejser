@@ -13,18 +13,16 @@ router
         ctx.render('user')
     })
     .post('/setup', async function (ctx) {
+        pass = bcrypt.hashSync(ctx.request.body.password, salt)
         // create a sample user
         let user = new User({
             username: ctx.request.body.username,
-            password: await bcrypt.hash(ctx.request.body.password, salt, () => { }, (err, res) => {
-                if (err)
-                    console.log(err);
-            }),
+            password: pass,
             role: 'user'
         });
         await user.save()// save the sample user
         let out = { success: true };
-        ctx.body = out;
+        ctx.body = user;
     })
     .get('/', function (ctx) {
         ctx.body = 'Hello! The API is at /api';
