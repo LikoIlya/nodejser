@@ -37,10 +37,10 @@ const pug = new Pug({
 })
  app.use(session({
    store: new MongooseStore({
-     collection: 'session',
      connection: con,
-    expires: 60 * 60 * 24 * 14, // 2 weeks is the default
-    model: 'KoaSession'
+     collection: 'session',
+     expires: 60 * 60, // 2 weeks is the default
+     model: 'KoaSession'
   })
 }))
 
