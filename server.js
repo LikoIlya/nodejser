@@ -44,10 +44,6 @@ const pug = new Pug({
   })
 }))
 
-/*app.use(ctx => {
-  var n = ctx.session.views || 0
-  ctx.session.views = ++n
-})*/
 // =======================
 // routes ================
 // =======================
